@@ -35,8 +35,11 @@ def assigned_name():
 
 
 if __name__ == '__main__':
-    class Module(object):
-        def __init__(self):
-            self.name = assigned_name()
-    admin = Module()
-    print admin.name
+    import collections
+    def namedtuple(*names):
+        rv = collections.namedtuple(assigned_name(), names)
+        rv.__module__ = sys._getframe(1).f_globals['__name__']
+        return rv
+
+    Token = namedtuple('type', 'value', 'lineno')
+    print Token, Token('int', 42, 1)
