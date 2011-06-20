@@ -1,3 +1,14 @@
+# -*- coding: utf-8 -*-
+"""
+    implicitself
+    ~~~~~~~~~~~~
+
+    Implements a bytecode hack and metaclass to make the self
+    implicit in functions.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
 import opcode
 from types import FunctionType, CodeType
 
@@ -9,6 +20,8 @@ LOAD_GLOBAL = opcode.opmap['LOAD_GLOBAL']
 STORE_GLOBAL = opcode.opmap['STORE_GLOBAL']
 LOAD_ATTR = opcode.opmap['LOAD_ATTR']
 STORE_ATTR = opcode.opmap['STORE_ATTR']
+LOAD_NAME = opcode.opmap['LOAD_NAME']
+STORE_NAME = opcode.opmap['STORE_NAME']
 
 
 def disassemble(code):
@@ -43,9 +56,10 @@ def inject_self(code):
     for op, arg in disassemble(code.co_code):
         if op in (LOAD_FAST, STORE_FAST):
             arg = varnames.index(code.co_varnames[arg])
-        elif op in (LOAD_GLOBAL, STORE_GLOBAL):
+        elif op in (LOAD_GLOBAL, STORE_GLOBAL, LOAD_NAME, STORE_NAME):
             if code.co_names[arg] == 'self':
-                op = LOAD_FAST if op == LOAD_GLOBAL else STORE_FAST
+                op = LOAD_FAST if op in (LOAD_GLOBAL, LOAD_NAME) \
+                               else STORE_FAST
                 arg = 0
             else:
                 arg = names.index(code.co_names[arg])

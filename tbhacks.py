@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+    tbhacks
+    ~~~~~~~
+
+    Provides a function to rechain tracebacks.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
 import sys
 import ctypes
 from types import TracebackType

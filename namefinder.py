@@ -1,4 +1,15 @@
-import gc, sys
+# -*- coding: utf-8 -*-
+"""
+    namefinder
+    ~~~~~~~~~~
+
+    Finds all names for an object via the garbage collector graph.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
+import gc
+import sys
 
 
 def find_names(obj):

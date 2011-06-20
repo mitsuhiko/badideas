@@ -1,4 +1,15 @@
-import sys, dis
+# -*- coding: utf-8 -*-
+"""
+    assname
+    ~~~~~~~
+
+    Figures out the assigned name for an expression.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
+import sys
+import dis
 
 
 def assigned_name():

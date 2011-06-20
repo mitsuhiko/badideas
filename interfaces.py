@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+    interfaces
+    ~~~~~~~~~~
+
+    Implements a ``implements()`` function that does interfaces.  It's
+    a very simple implementation and does not handle multiple calls
+    to implements() properly.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
 import sys
 
 

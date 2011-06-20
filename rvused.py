@@ -1,4 +1,15 @@
-import sys, dis
+# -*- coding: utf-8 -*-
+"""
+    rvused
+    ~~~~~~
+
+    Is my return value used?  This function will tell you.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
+import sys
+import dis
 
 
 def return_value_used():

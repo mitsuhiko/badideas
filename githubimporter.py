@@ -1,3 +1,13 @@
+# -*- coding: utf-8 -*-
+"""
+    githubimporter
+    ~~~~~~~~~~~~~~
+
+    Imports code directly from github.
+
+    :copyright: (c) Copyright 2011 by Armin Ronacher.
+    :license: BSD, see LICENSE for more details.
+"""
 import sys
 import imp
 import urllib
