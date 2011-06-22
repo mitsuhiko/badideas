@@ -28,5 +28,5 @@ mod.__dict__.update(old_mod.__dict__)
 
 
 if __name__ == '__main__':
-    from magicmodule improt git_hash
+    from magicmodule import git_hash
     print 'git hash:', git_hash
